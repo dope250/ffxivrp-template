@@ -2,4 +2,21 @@
 
 .bg-image {
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../img/bg.png');
+    background-size: initial;
 }
+
+.bg-darkened {
+    background: linear-gradient(rgba(90, 73, 57, 0.845), rgba(90, 73, 57, 0.845));
+}
+
+.text-link-custom {
+    color: rgb(254, 255, 242);
+}
+
+
+/* unvisited link 
+
+a:link,
+a:visited {
+    color: rgb(254, 255, 242);
+} */

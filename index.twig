@@ -22,12 +22,12 @@
 </head>
 <body{% if config.theme_config.bgimage %} class="bg-image"{% endif %}>
 
-<div class="container bg-light bg-gradient">
+<div class="container text-light">
     <div id="header" role="banner" class="container">
         <div class="row">
             <!--Title & Tagline-->
             <div id="title"{{ pages["_meta"].meta.tagline }} class="tagline col-6")>
-                <a href="{{ "index"|link }}">
+                <a href="{{ "index"|link }}" class="link-info">
                     <h1>{{ site_title }}</h1>
                     {{ pages["_meta"].meta.tagline|markdown }}
                 </a>
@@ -35,7 +35,7 @@
             <!--Logo-->
             {% if pages["_meta"].meta.logo %}
                 <div id="logo" aria-hidden="true" class="col-5 img">
-                    <a href="{{ "index"|link }}">
+                    <a href="{{ "index"|link }}" class="link-info">
                         <img src="{{ pages["_meta"].meta.logo|url }}" alt="" />
                     </a>
                 </div>
@@ -44,21 +44,21 @@
 
 
             <!--Navigation-->
-            <div id="nav" role="navigation" tabindex="-1">
-                <ul class="nav nav-tabs nav-fill">
+            
+                <ul class="nav nav-tabs nav-fill bg-secondary link-info">
                     {% for page in pages(depthOffset=-1) if page.title and not page.hidden %}
                         <li class="nav-item">
-                            <a {% if page.id == current_page.id %} class="nav-link active" {% endif %} class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+                            <a {% if page.id == current_page.id %} class="nav-link active" aria-current="page" {% endif %} class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
-            </div>
+            
         </div>
     </div>
 
 
     <!--Content-->
-    <div id="main" role="main">
+    <div id="main" role="main" class="bg-darkened">
         <div class="container">
             {{ content }}
         </div>
@@ -69,7 +69,7 @@
         <div class="container">
             <!--Footer text-->
             <div id="footer text">
-                 &copy Custom Theme made by <a href="https://electronicping.net">electronic Ping [eP]</a>
+                 &copy Custom Theme made by <a href="https://electronicping.net" class="link-info">electronic Ping [eP]</a>
                  {{ pages["_meta"].meta.footertext|markdown }}
             </div>
             <!--Footer Social Buttons-->
