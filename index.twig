@@ -24,7 +24,7 @@
     <div id="header" role="banner" class="container">
         <div class="row">
             <!--Title & Tagline-->
-            <div id="title"{{ pages["_meta"].meta.tagline ? ' class="tagline col-6"' }})>
+            <div id="title"{{ pages["_meta"].meta.tagline }} class="tagline col-6")>
                 <a href="{{ "index"|link }}">
                     <h1>{{ site_title }}</h1>
                     {{ pages["_meta"].meta.tagline|markdown }}
@@ -60,19 +60,18 @@
         </div>
     </div>
     <!--Footer-->
-    <div id="footer" class="container-fluid bg-secondary bg-gradient text-white">
+    <div id="footer" class="container-fluid bg-secondary bg-gradient text-white ">
         <div class="row">
             <!--Footer text-->
             <div id="footer text" class="col">
-                 <p>&copy Custom Theme made by <a href="https://electronicping.net">electronic Ping [eP]</a> <br />
-				Diese Seite existiert nur für Rollenspielzwecke. Sie repräsentiert kein echtes Restaurant oder Bar!</p>
+                 &copy Custom Theme made by <a href="https://electronicping.net">electronic Ping [eP]</a>
+                 {{ pages["_meta"].meta.FooterText|markdown }}
             </div>
-            <!--Footer Social-->
+            <!--Footer Social Buttons-->
             <div id="social" class="col">
                 {% for social in pages["_meta"].meta.social %}
-                    <a href="{{ social.url }}" title="{{ social.title }}" role="button">
-                        <span class="icon-{{ social.icon }}" aria-hidden="true"></span>
-                        <span class="sr-only">{{ social.title }}</span>
+                    <a href="{{ social.url }}" title="{{ social.title }}" role="button" class="float-end badge">
+                        <img src={{ social.icon|url }} aria-hidden="true" width="32" height="32">
                     </a>
                 {% endfor %}
             </div>
