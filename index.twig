@@ -21,21 +21,27 @@
 </head>
 <body{% if config.theme_config.widescreen %} class="widescreen"{% endif %}>
 
-    <div id="header" role="banner">
-        <div class="container">
-            {% if pages["_meta"].meta.logo %}
-                <div id="logo" aria-hidden="true">
-                    <a href="{{ "index"|link }}">
-                        <img src="{{ pages["_meta"].meta.logo|url }}" alt="" />
-                    </a>
-                </div>
-            {% endif %}
-            <div id="title"{{ pages["_meta"].meta.tagline ? ' class="tagline"' }})>
+    <div id="header" role="banner" class="container">
+        <div class="row">
+            <!--Title & Tagline-->
+            <div id="title"{{ pages["_meta"].meta.tagline ? ' class="tagline col-6"' }})>
                 <a href="{{ "index"|link }}">
                     <h1>{{ site_title }}</h1>
                     {{ pages["_meta"].meta.tagline|markdown }}
                 </a>
             </div>
+            <!--Logo-->
+            {% if pages["_meta"].meta.logo %}
+                <div id="logo" aria-hidden="true" class="col-5 img">
+                    <a href="{{ "index"|link }}">
+                        <img src="{{ pages["_meta"].meta.logo|url }}" alt="" />
+                    </a>
+                </div>
+            {% endif %}
+
+
+
+            <!--Navigation-->
             <div id="nav" role="navigation" tabindex="-1">
                 <ul class="nav nav-tabs nav-fill">
                     {% for page in pages(depthOffset=-1) if page.title and not page.hidden %}
@@ -47,16 +53,22 @@
             </div>
         </div>
     </div>
-
+    <!--Content-->
     <div id="main" role="main">
         <div class="container">
             {{ content }}
         </div>
     </div>
-
-    <div id="footer">
-        <div class="container">
-            <div class="social">
+    <!--Footer-->
+    <div id="footer" class="container-fluid bg-secondary bg-gradient text-white">
+        <div class="row">
+            <!--Footer text-->
+            <div id="footer text" class="col">
+                 <p>&copy Custom Theme made by <a href="https://electronicping.net">electronic Ping [eP]</a> <br />
+				Diese Seite existiert nur für Rollenspielzwecke. Sie repräsentiert kein echtes Restaurant oder Bar!</p>
+            </div>
+            <!--Footer Social-->
+            <div id="social" class="col">
                 {% for social in pages["_meta"].meta.social %}
                     <a href="{{ social.url }}" title="{{ social.title }}" role="button">
                         <span class="icon-{{ social.icon }}" aria-hidden="true"></span>
@@ -64,10 +76,6 @@
                     </a>
                 {% endfor %}
             </div>
-            <p>
-                Custom Theme by <a href="https://electronicping.net">electronic Ping [eP]</a> <br />
-				Diese Seite existiert nur für Rollenspielzwecke. Sie repräsentiert kein echtes Restaurant oder Bar!
-            </p>
         </div>
     </div>
 
