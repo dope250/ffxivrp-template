@@ -22,7 +22,7 @@
 </head>
 <body{% if config.theme_config.bgimage %} class="bg-image"{% endif %}>
 
-<div class="container text-light">
+<div class="container text-content">
     <div id="header" role="banner" class="container">
         <div class="row">
             <!--Title & Tagline-->
@@ -44,28 +44,28 @@
 
 
             <!--Navigation-->
-            
-                <ul class="nav nav-tabs nav-fill bg-secondary link-info">
+            <!-- <div id="navigation" class="container px-0"> -->
+                <ul class="nav nav-tabs nav-fill px-0 bg-darkened">
                     {% for page in pages(depthOffset=-1) if page.title and not page.hidden %}
-                        <li class="nav-item">
-                            <a {% if page.id == current_page.id %} class="nav-link active" aria-current="page" {% endif %} class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+                        <li class="nav-item ">
+                            <a {% if page.id == current_page.id %} class="nav-link active text-light border-bottom-0" aria-current="page" {% endif %} class="nav-link text-light bg-dark" href="{{ page.url }}">{{ page.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
-            
+            <!-- </div> -->
         </div>
     </div>
 
 
     <!--Content-->
     <div id="main" role="main" class="bg-darkened">
-        <div class="container">
+        <div id="content" class="container py-5">
             {{ content }}
         </div>
     </div>
 </div>
     <!--Footer-->
-    <div id="footer" class="navbar navbar-light bg-secondary bg-gradient text-white fixed-bottom">
+    <div id="footer" class="navbar navbar-light bg-footer text-footer fixed-bottom">
         <div class="container">
             <!--Footer text-->
             <div id="footer text">

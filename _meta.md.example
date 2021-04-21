@@ -1,0 +1,15 @@
+---
+Logo: %theme_url%/img/pico.svg
+FooterText: Diese Seite existiert nur für Rollenspielzwecke. Sie repräsentiert kein echtes Restaurant oder Bar!
+Tagline: Making the web easy.
+Social:
+    - title: YouTube
+      url: https://github.com/picocms/Pico
+      icon: %theme_url%/icon/octocat.png
+    - title: Twitter
+      url: https://webchat.freenode.net/?channels=%23picocms
+      icon: %theme_url%/icon/octocat.png
+    - title: Instagram
+      url: https://www.bountysource.com/teams/picocms
+      icon: %theme_url%/icon/octocat.png
+---

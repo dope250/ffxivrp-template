@@ -12,4 +12,4 @@ twig_config:                    # Twig template engine config
     strict_variables: false     # If set to true, Twig will bail out when unset variables are being used
     charset: utf-8              # The charset used by Twig templates
 
-bgimage: true                  # use a background image
+bgimage: true                   # use a background image TODO!
