@@ -44,7 +44,7 @@
 
 
             <!--Navigation-->
-            <!-- <div id="navigation" class="container px-0"> -->
+            
                 <ul class="nav nav-tabs nav-fill px-0 bg-darkened">
                     {% for page in pages(depthOffset=-1) if page.title and not page.hidden %}
                         <li class="nav-item ">
@@ -52,7 +52,6 @@
                         </li>
                     {% endfor %}
                 </ul>
-            <!-- </div> -->
         </div>
     </div>
 
@@ -61,7 +60,32 @@
     <div id="main" role="main" class="bg-darkened">
         <div id="content" class="container py-5">
             {{ content }}
-        </div>
+            
+            <!-- Image Carousel TODO: Make hidden if not available-->
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for album in meta.album %}
+    <div {% if album.active %} class="carousel-item active" {% endif %} class="carousel-item">
+      <img src={{ album.imgurl|url }} class="d-block w-100" alt="{{ album.title }}">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ album.title }}</h5>
+        <p>{{ album.description }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+            
+      </div>  
     </div>
 </div>
     <!--Footer-->
@@ -83,8 +107,6 @@
         </div>
     </div>
 
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>
