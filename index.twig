@@ -61,31 +61,33 @@
         <div id="content" class="container py-5">
             {{ content }}
             
-            <!-- Image Carousel TODO: Make hidden if not available-->
+            <!-- Image Carousel -->
 
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    {% for album in meta.album %}
-    <div {% if album.active %} class="carousel-item active" {% endif %} class="carousel-item">
-      <img src={{ album.imgurl|url }} class="d-block w-100" alt="{{ album.title }}">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>{{ album.title }}</h5>
-        <p>{{ album.description }}</p>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+            {% if meta.album %}
+                <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for album in meta.album %}
+                        <div {% if album.active %} class="carousel-item active" {% endif %} class="carousel-item">
+                            <img src={{ album.imgurl|url }} class="d-block w-100" alt="{{ album.title }}">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ album.title }}</h5>
+                                <p>{{ album.description }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            {% endif %}
             
-      </div>  
+        </div>  
     </div>
 </div>
     <!--Footer-->
