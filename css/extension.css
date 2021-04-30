@@ -21,7 +21,11 @@ body a {
 
 .bg-darkened {
     background: linear-gradient( rgba(55, 49, 49, 0.9), rgba(55, 49, 49, 0.9)) !important;
-    border-color: rgb(55, 49, 49) !important;
+    /* border-color: rgb(55, 49, 49) !important; */
+}
+
+#main {
+    border-color: rgb(148, 125, 80) !important;
 }
 
 .bg-darkbrown {
